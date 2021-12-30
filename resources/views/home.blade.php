@@ -71,6 +71,22 @@
 							<ul class="list-main">
 								<li><i class="ti-headphone-alt"></i> +6282269962344</li>
 								<li><i class="ti-email"></i> Coegpengencuan@gmail.com</li>
+                                </li>
+                                <li>
+                                    @role('admin')
+                                    <p>ini admin</p>
+                                    @endrole
+                                </li>
+                                <li>
+                                    @role('penjual')
+                                    <p>ini penjual</p>
+                                    @endrole
+                                </li>
+                                <li>
+                                    @role('pembeli')
+                                    <p>ini pembeli</p>
+                                    @endrole
+                                </li>
 							</ul>
 						</div>
 						<!--/ End Top Left -->

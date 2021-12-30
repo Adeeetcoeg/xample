@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +27,20 @@ Route::get('/checkout', function () {
 
 
 Auth::routes();
+
+Route::group(
+    ['prefix' => 'admin','middleware'=>['auth','role:admin']], function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+    });
+
+Route::group(
+    ['prefix' => 'penjual','middleware'=>['auth','role:penjual']], function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+    });
+
+    Route::group(
+    ['prefix' => 'user','middleware'=>['auth','role:user']], function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+    });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
